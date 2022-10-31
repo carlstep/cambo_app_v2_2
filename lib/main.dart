@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import './transaction.dart';
+import './currency_calc.dart';
+import './transaction_list.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter App',
-      home: MyHomePage(),
+      home: DefaultTabController(length: 2, child: MyHomePage()),
     );
   }
 }
@@ -26,86 +28,37 @@ class MyHomePage extends StatelessWidget {
       userCurrency: 'CNY',
       amountUserCurrency: 36.33,
       transactionDate: DateTime.now(),
+    ),
+    Transaction(
+      id: 't2',
+      title: 'taxi',
+      amountKhrCurrency: 40000,
+      amountUsdCurrency: 10,
+      userCurrency: 'CNY',
+      amountUserCurrency: 72.66,
+      transactionDate: DateTime.now(),
     )
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Flutter App'),
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        // main column
-        children: [
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 30, vertical: 0),
-            child: Column(
-              // mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: <Widget>[
-                Text('input section'),
-                SizedBox(
-                  height: 10,
-                ),
-                Container(
-                  height: 100,
-                  child: Card(
-                    elevation: 5,
-                    color: Colors.yellow[200],
-                    child: Text('input field'),
-                  ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Container(
-                  height: 100,
-                  child: Card(
-                    elevation: 5,
-                    color: Colors.green[200],
-                    child: Text('input field'),
-                  ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Container(
-                  height: 100,
-                  child: Card(
-                    elevation: 5,
-                    color: Colors.blue[200],
-                    child: Text('input field'),
-                  ),
-                ),
-              ],
+        appBar: AppBar(
+          bottom: const TabBar(tabs: [
+            Tab(
+              text: 'currency calc',
             ),
-          ),
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 0),
-            height: 160,
-            width: double.infinity,
-            child: Card(
-              //elevation: 10,
-              color: Colors.grey[300],
-              child: Text('display data section'),
+            Tab(
+              text: 'transaction list',
             ),
-          ),
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
-            height: 120,
-            width: double.infinity,
-            child: Card(
-              color: Colors.red[200],
-              child: Text('in app advertising'),
-            ),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-        ],
-      ),
-    );
+          ]),
+          title: const Text('Flutter App'),
+        ),
+        body: TabBarView(
+          children: [
+            CurrencyCalc(),
+            TransactionList(),
+          ],
+        ));
   }
 }
