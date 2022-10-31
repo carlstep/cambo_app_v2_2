@@ -15,28 +15,55 @@ class TransactionList extends StatelessWidget {
         Column(
           children: transactions.map((tx) {
             return Card(
-              child: Row(
-                children: [
-                  Column(
-                    children: [
-                      Text(tx.title),
-                      Text(
-                        tx.transactionDate.toString(),
+              child: Container(
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.grey,
+                    width: 2,
+                  ),
+                ),
+                child: Row(
+                  children: [
+                    Column(
+                      children: [
+                        Text(tx.title),
+                        Text(
+                          tx.transactionDate.toString(),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      width: 20,
+                    ),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20, vertical: 0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                              margin: const EdgeInsets.all(5),
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 5, vertical: 5),
+                              color: Colors.yellow[200],
+                              child: Text('KHR: ${tx.amountKhrCurrency}')),
+                          Container(
+                              margin: const EdgeInsets.all(5),
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 5, vertical: 5),
+                              color: Colors.green[200],
+                              child: Text('USD: ${tx.amountUsdCurrency}')),
+                          Container(
+                              margin: const EdgeInsets.all(5),
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 5, vertical: 5),
+                              color: Colors.blue[200],
+                              child: Text('CNY: ${tx.amountUserCurrency}')),
+                        ],
                       ),
-                    ],
-                  ),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('KHR: ${tx.amountKhrCurrency}'),
-                      Text('USD: ${tx.amountUsdCurrency}'),
-                      Text('CNY: ${tx.amountUserCurrency}'),
-                    ],
-                  )
-                ],
+                    )
+                  ],
+                ),
               ),
             );
           }).toList(),
