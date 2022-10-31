@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import './transaction.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -15,34 +17,82 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
+  final List<Transaction> transactions = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Flutter App'),
+        title: const Text('Flutter App'),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        // main column
         children: [
           Container(
-            width: double.infinity,
-            height: 75,
-            child: Card(
-              color: Colors.blue,
-              elevation: 5,
-              child: Text('input value 1'),
+            padding: EdgeInsets.symmetric(horizontal: 30, vertical: 0),
+            child: Column(
+              // mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                Text('input section'),
+                SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  height: 100,
+                  child: Card(
+                    elevation: 5,
+                    color: Colors.yellow[200],
+                    child: Text('input field'),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  height: 100,
+                  child: Card(
+                    elevation: 5,
+                    color: Colors.green[200],
+                    child: Text('input field'),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  height: 100,
+                  child: Card(
+                    elevation: 5,
+                    color: Colors.blue[200],
+                    child: Text('input field'),
+                  ),
+                ),
+              ],
             ),
           ),
           Container(
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+            height: 160,
             width: double.infinity,
             child: Card(
-              color: Colors.amber,
-              child: Text('input value 2'),
+              //elevation: 10,
+              color: Colors.grey[300],
+              child: Text('display data section'),
             ),
           ),
           Container(
+            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+            height: 120,
+            width: double.infinity,
             child: Card(
-              child: Text('input value 3'),
+              color: Colors.red[200],
+              child: Text('in app advertising'),
             ),
+          ),
+          SizedBox(
+            height: 10,
           ),
         ],
       ),
