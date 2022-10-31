@@ -57,7 +57,7 @@ class MyHomePage extends StatelessWidget {
         body: TabBarView(
           children: [
             CurrencyCalc(),
-            TransactionList(),
+            TransactionList(transactions),
           ],
         ));
   }

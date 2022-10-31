@@ -1,19 +1,45 @@
 import 'package:flutter/material.dart';
 
+import './transaction.dart';
+
 class TransactionList extends StatelessWidget {
-  const TransactionList({Key? key}) : super(key: key);
+  final List<Transaction> transactions;
+
+  TransactionList(this.transactions);
 
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Container(
-          height: 100,
-          child: Card(
-            elevation: 5,
-            color: Colors.green[200],
-            child: Text('input field'),
-          ),
+        Column(
+          children: transactions.map((tx) {
+            return Card(
+              child: Row(
+                children: [
+                  Column(
+                    children: [
+                      Text(tx.title),
+                      Text(
+                        tx.transactionDate.toString(),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('KHR: ${tx.amountKhrCurrency}'),
+                      Text('USD: ${tx.amountUsdCurrency}'),
+                      Text('CNY: ${tx.amountUserCurrency}'),
+                    ],
+                  )
+                ],
+              ),
+            );
+          }).toList(),
         ),
       ],
     );
