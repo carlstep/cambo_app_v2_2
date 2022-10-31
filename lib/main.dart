@@ -57,7 +57,10 @@ class MyHomePage extends StatelessWidget {
         body: TabBarView(
           children: [
             CurrencyCalc(),
-            TransactionList(transactions),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TransactionList(transactions),
+            ),
           ],
         ));
   }
