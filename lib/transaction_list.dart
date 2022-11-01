@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import './transaction.dart';
 
@@ -25,9 +26,10 @@ class TransactionList extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
@@ -41,7 +43,7 @@ class TransactionList extends StatelessWidget {
                           height: 20,
                         ),
                         Text(
-                          tx.transactionDate.toString(),
+                          DateFormat('E, dd MMM yy').format(tx.transactionDate),
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w300,
@@ -59,6 +61,7 @@ class TransactionList extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
+                            width: 150,
                             margin: const EdgeInsets.all(5),
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 5, vertical: 5),
@@ -71,6 +74,7 @@ class TransactionList extends StatelessWidget {
                             ),
                           ),
                           Container(
+                              width: 150,
                               margin: const EdgeInsets.all(5),
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 5, vertical: 5),
@@ -82,6 +86,7 @@ class TransactionList extends StatelessWidget {
                                 ),
                               )),
                           Container(
+                              width: 150,
                               margin: const EdgeInsets.all(5),
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 5, vertical: 5),
