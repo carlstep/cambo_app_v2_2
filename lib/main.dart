@@ -43,25 +43,26 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          bottom: const TabBar(tabs: [
-            Tab(
-              text: 'currency calc',
-            ),
-            Tab(
-              text: 'transaction list',
-            ),
-          ]),
-          title: const Text('Flutter App'),
-        ),
-        body: TabBarView(
-          children: [
-            CurrencyCalc(),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: TransactionList(transactions),
-            ),
-          ],
-        ));
+      appBar: AppBar(
+        bottom: const TabBar(tabs: [
+          Tab(
+            text: 'currency calc',
+          ),
+          Tab(
+            text: 'transaction list',
+          ),
+        ]),
+        title: const Text('Flutter App'),
+      ),
+      body: TabBarView(
+        children: [
+          CurrencyCalc(),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TransactionList(transactions),
+          ),
+        ],
+      ),
+    );
   }
 }
