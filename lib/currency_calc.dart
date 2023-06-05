@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CurrencyCalc extends StatelessWidget {
-  String inputValueKhr;
-  String inputValueUsd;
+  String? inputValueKhr;
+  String? inputValueUsd;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,6 @@ class CurrencyCalc extends StatelessWidget {
                         child: TextField(
                           decoration:
                               InputDecoration(labelText: 'enter KHR value...'),
-                          onChanged: (value) {},
                         ),
                       ),
                     ),
